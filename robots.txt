@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://clearsyntax618.github.io/blog/sitemap.xml

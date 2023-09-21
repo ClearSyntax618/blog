@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on blog</title>
-    <link>https://ClearSyntax618.github.io/blog/categories/</link>
-    <description>Recent content in Categories on blog</description>
+    <title>Categories on Matías Rivero&#39;s Blog</title>
+    <link>https://clearsyntax618.github.io/blog/categories/</link>
+    <description>Recent content in Categories on Matías Rivero&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <copyright>© 2023 </copyright>
-    <atom:link href="https://ClearSyntax618.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2023 Matías Rivero</copyright>
+    <atom:link href="https://clearsyntax618.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

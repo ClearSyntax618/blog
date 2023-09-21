@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Matías Rivero&#39;s Blog</title>
+    <link>https://clearsyntax618.github.io/blog/series/</link>
+    <description>Recent content in Series on Matías Rivero&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <copyright>© 2023 Matías Rivero</copyright>
+    <atom:link href="https://clearsyntax618.github.io/blog/series/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
