@@ -21,7 +21,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2.2.1
         with:
-          hugo-version: '0.58.3'
+          hugo-version: 'latest'
       - name: Prepare Hugo
         run: |
           git submodule sync && git submodule update --init
