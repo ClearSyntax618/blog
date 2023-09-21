@@ -1,42 +1,40 @@
-name: Publish Docs
-
+name: Publish to GH Pages
 on:
   push:
     branches:
       - master
-    paths:
-      - 'docs/**'
-  workflow_dispatch: #
-  
-env:
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  pull_request:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Checkout
-        uses: actions/setup-node@v1
+      - name: Checkout source
+        uses: actions/checkout@v3
         with:
-          node-version: 10.x
+          submodules: true
+
+      - name: Checkout destination
+        uses: actions/checkout@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          ref: gh-pages
+          path: built-site
+
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2.2.1
-        with:
-          hugo-version: 'latest'
-      - name: Prepare Hugo
         run: |
-          git submodule sync && git submodule update --init
+          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.tar.gz'
+          tar -C ${RUNNER_TEMP} -zxvf /tmp/hugo.tar.gz hugo          
       - name: Build
-        run: make docs
-      - name: add nojekyll
-        run: touch ./docs/public/.nojekyll
+        run: ${RUNNER_TEMP}/hugo
+
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.4.0
-        with:
-          emptyCommits: false
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./docs/public
+        if: github.ref == 'refs/heads/master'
+        run: |
+          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
+          cd ${GITHUB_WORKSPACE}/built-site
+          git add .
+          git config user.name 'ClearSyntax618'
+          git config user.email 'matiasrivero7@proton.me'
+          git commit -m 'Updated site'
+          git push  
