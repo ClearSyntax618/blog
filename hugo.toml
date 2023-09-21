@@ -1,0 +1,32 @@
+baseURL = "https://ClearSyntax618.github.io/blog"
+languageCode = "es"
+title = "blog"
+theme = "blowfish"
+RelativeURLs=true
+CanonifyURLs=true
+
+[params]
+  pygmentsCodeFences = true
+  pygmentsStyle="monokai"
+    editURL = ""
+  author = "ClearSyntax618"
+  description = "Documentation for blog"
+  showVisitedLinks = false
+  disableSearch = false
+  disableAssetsBusting = false
+  disableInlineCopyToClipBoard = false
+  disableShortcutsTitle = false
+  disableLanguageSwitchingButton = false
+  disableBreadcrumb = true
+  disableNextPrev = false
+  ordersectionsby = "weight"
+  themeVariant = "green"
+
+[[menu.shortcuts]] 
+  name = "<i class='fab fa-github'></i> Github repo"
+  identifier = "ds"
+  url = "https://github.com/ClearSyntax618/blog"
+  weight = 10
+
+[outputs]
+  home = [ "HTML", "RSS", "JSON"]
